@@ -1,7 +1,7 @@
 "use client";
 import { useState } from 'react';
 import { request } from 'graphql-request';
-import CreateTenantMutation from "../_definitions/mutations/tenant/create";
+import SignInTenantMutation from "../_definitions/mutations/tenant/sign-in";
 
 export default function RegisterPage() {
   const [identifier, setIdentifier] = useState('');
@@ -14,10 +14,10 @@ export default function RegisterPage() {
         password,
       };
 
-      const data = await request("http://localhost:3001/data", CreateTenantMutation, variables);
-      console.log('Successful Register:', data);
+      const data = await request("http://localhost:3001/data", SignInTenantMutation, variables);
+      console.log('Successful Sign In:', data);
     } catch (error) {
-      console.error('Error Registering:', error);
+      console.error('Error Sign In:', error);
     }
   };
 
@@ -35,7 +35,7 @@ export default function RegisterPage() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSubmit}>Register</button>
+      <button onClick={handleSubmit}>Sign In</button>
     </div>
   );
 };
