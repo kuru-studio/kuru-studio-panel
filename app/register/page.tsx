@@ -1,42 +1,23 @@
 "use client";
 import { useState } from 'react';
 import { request } from 'graphql-request';
+import CreateTenantMutation from "../_definitions/mutations/tenant/create";
 
 export default function RegisterPage() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSignIn = async () => {
+  const handleSubmit = async () => {
     try {
-      const mutation = `
-        mutation createUser($email: String!, $password: String!, $name: String!) {
-          createUser(input: {
-            name: $name,
-            authProvider: {
-              credentials: {
-                email: $email,
-                password: $password
-              }
-            }
-          }) {
-            id
-            name
-            email
-          }
-        }
-      `;
-
       const variables = {
-        name,
-        email,
+        identifier,
         password,
       };
 
-      const data = await request("http://localhost:3001/data", mutation, variables);
-      console.log('Successful signIn:', data);
+      const data = await request("http://localhost:3001/data", CreateTenantMutation, variables);
+      console.log('Successful Register:', data);
     } catch (error) {
-      console.error('Error signing in:', error);
+      console.error('Error Registering:', error);
     }
   };
 
@@ -44,15 +25,9 @@ export default function RegisterPage() {
     <div>
       <input
         type="text"
-        placeholder="Name"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Identifier"
+        value={identifier}
+        onChange={(e) => setIdentifier(e.target.value)}
       />
       <input
         type="password"
@@ -60,7 +35,7 @@ export default function RegisterPage() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSignIn}>Sign In</button>
+      <button onClick={handleSubmit}>Register</button>
     </div>
   );
 };
