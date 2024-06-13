@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Organism from "@organism";
+import Atom from "@atom";
 import "../../_styles/globals.css";
 
 const Default = ({
@@ -7,6 +8,8 @@ const Default = ({
 }: {
   children: React.ReactNode
 }) => {
+  const isLoggedIn = false;
+
   return (
     <html lang="en" className="h-full">
       <Head>
@@ -16,11 +19,16 @@ const Default = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className="flex flex-col h-full">
-        <Organism.Wrapper>
-          <Organism.Header />
-          <div className="container mx-auto flex-1">{children}</div>
-          <Organism.Footer />
-        </Organism.Wrapper>
+        <Atom.Visibility state={!isLoggedIn}>
+          <Organism.Authenticate />
+        </Atom.Visibility>
+        <Atom.Visibility state={isLoggedIn}>
+          <Organism.Wrapper>
+            <Organism.Header />
+            <div className="container mx-auto flex-1">{children}</div>
+            <Organism.Footer />
+          </Organism.Wrapper>
+        </Atom.Visibility>
       </body>
     </html>
   );

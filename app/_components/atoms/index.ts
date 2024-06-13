@@ -3,6 +3,7 @@ import Card from "./Card";
 import Logo from "./Logo";
 import Button from "./Button";
 import GitHub from "./GitHub";
+import Input from "./Input";
 
 const Atom = {
   Visibility,
@@ -10,6 +11,7 @@ const Atom = {
   Logo,
   Button,
   GitHub,
+  Input,
 }
 
 export default Atom;

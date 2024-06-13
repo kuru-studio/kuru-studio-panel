@@ -1,5 +1,5 @@
 "use client";
-import StyledComponentsRegistry from "../../_utilities/antd_registry";
+import StyledComponentsRegistry from "../../_utilities/antd-registry";
 import ConfigProvider from "antd/es/config-provider";
 import { StyleProvider } from "@ant-design/cssinjs";
 import { Provider as ReduxProvider } from "react-redux";
