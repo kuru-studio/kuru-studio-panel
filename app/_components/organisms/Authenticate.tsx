@@ -4,6 +4,7 @@ import { request } from 'graphql-request';
 import { Input } from 'antd';
 import SignInTenantMutation from "../../_definitions/mutations/tenant/sign-in";
 import CreateTenantMutation from "../../_definitions/mutations/tenant/create";
+import authenticate from "@/app/_utilities/authenticate";
 
 import Atom from "@atom";
 
@@ -11,6 +12,7 @@ const Authenticate: React.FunctionComponent = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [isSignIn, setIsSignIn] = useState(true);
+  const { login } = authenticate();
 
   const handleSubmit = async () => {
     try {
@@ -22,6 +24,9 @@ const Authenticate: React.FunctionComponent = () => {
       const mutation = isSignIn ? SignInTenantMutation : CreateTenantMutation;
 
       const data = await request("http://localhost:3001/data", mutation, variables);
+      if (isSignIn) {
+        login(data?.token);
+      }
       console.log(`Successful ${isSignIn ? 'Sign In' : 'Register'}:`, data);
     } catch (error) {
       console.error(`Error ${isSignIn ? 'Sign In' : 'Register'}:`, error);
