@@ -1,14 +1,17 @@
+'use client';
 import Head from 'next/head';
 import Organism from "@organism";
 import Atom from "@atom";
 import "../../_styles/globals.css";
+import authenticate from "@/app/_utilities/authenticate";
 
 const Default = ({
   children,
 }: {
   children: React.ReactNode
 }) => {
-  const isLoggedIn = false;
+  const { token } = authenticate();
+  const isLoggedIn = !!(token);
 
   return (
     <html lang="en" className="h-full">
