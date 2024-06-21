@@ -3,12 +3,14 @@ import { useState, useEffect } from "react";
 
 const authenticate = () => {
   const [token, setToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState<string | null>(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     if (storedToken) {
       setToken(storedToken);
     }
+    setLoading(false);
   }, []);
 
   const login = (token: string) => {
@@ -23,7 +25,7 @@ const authenticate = () => {
     window.location.reload();
   };
 
-  return { token, login, logout };
+  return { token, loading, login, logout };
 };
 
 export default authenticate;
