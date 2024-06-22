@@ -25,7 +25,9 @@ const Authenticate: React.FunctionComponent = () => {
 
       const data = await request("http://localhost:3001/data", mutation, variables);
       if (isSignIn) {
-        login(data?.token);
+        if (!!(data?.token)) {
+          login(data?.token);
+        }
       }
       console.log(`Successful ${isSignIn ? 'Sign In' : 'Register'}:`, data);
     } catch (error) {
