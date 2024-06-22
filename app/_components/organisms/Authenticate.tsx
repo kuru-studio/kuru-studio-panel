@@ -25,16 +25,25 @@ const Authenticate: React.FunctionComponent = () => {
       const mutation = isSignIn ? SignInTenantMutation : CreateTenantMutation;
 
       const data = await request("http://localhost:3001/data", mutation, variables);
+      const token = data?.signInTenant?.token;
+      const createErrors = data?.createTenant.errors;
+
       if (isSignIn) {
-        if (!!(data?.token)) {
-          login(data?.token);
+        if (!!(token)) {
+          login(token);
         } else {
           toast.error('Invalid identifier or password.');
         }
       }
-      console.log(`Successful ${isSignIn ? 'Sign In' : 'Register'}:`, data);
+
+      if (createErrors.length >= 1) {
+        createErrors.forEach((error: string) => {
+          toast.error(error);
+        });
+      }
+
     } catch (error) {
-      console.error(`Error ${isSignIn ? 'Sign In' : 'Register'}:`, error);
+      toast.error("Something went wrong.");
     }
   };
 
