@@ -8,8 +8,16 @@ import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { Tooltip } from "antd";
 import { ShopOutlined } from "@ant-design/icons";
 
+const EXPANDED_SETTING = "EXPANDED_SETTING";
+const storedExpandedSetting = localStorage.getItem(EXPANDED_SETTING) === "true" ? true : false;
+
 const Header: React.FunctionComponent = () => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(storedExpandedSetting);
+
+  const handleIsExpand = () => {
+    localStorage.setItem(EXPANDED_SETTING, `${!isExpanded}`);
+    setIsExpanded(!isExpanded);
+  }
 
   const MenuToggle = () => {
     return (
@@ -17,7 +25,7 @@ const Header: React.FunctionComponent = () => {
         <Tooltip title={isExpanded ? "Collapse Menu" : "Expand Menu"} placement="right">
           <button
             className="w-[20px] h-[20px] rounded-full border border-gray-300 bg-white shadow-lg overflow-hidden flex justify-center items-center"
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={handleIsExpand}
           >
             <Atom.Visibility state={isExpanded}>
               <ChevronLeftIcon className="h-8 w-8 text-gray-500" />
