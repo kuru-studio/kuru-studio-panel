@@ -16,8 +16,8 @@ const Default = ({
   return (
     <html lang="en" className="h-full">
       <Head>
-        <title>Kuru Studio Social</title>
-        <meta name="description" content="Kuru Studio Social" />
+        <title>Kuru Studio Panel</title>
+        <meta name="description" content="Kuru Studio Panel" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -28,8 +28,8 @@ const Default = ({
         <Atom.Visibility state={isLoggedIn}>
           <Organism.Wrapper>
             <Organism.Header />
-            <div className="flex-1 bg-gray-100">
-              <div>{children}</div>
+            <div className="flex flex-col h-screen flex-1 bg-gray-100">
+              <div className="flex-1">{children}</div>
               <Organism.Footer />
             </div>
           </Organism.Wrapper>

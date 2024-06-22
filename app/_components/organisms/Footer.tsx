@@ -6,7 +6,7 @@ const Footer: React.FunctionComponent = () => {
     <footer className="shadow-lg">
       <div className="bg-gray-600 text-white">
         <div className="container mx-auto py-3 flex flex-col items-center gap-1 text-sm">
-          <div>Kuru Studio Social &copy; 2023</div>
+          <div>Kuru Studio Panel &copy; 2023</div>
         </div>
       </div>
       <div className="bg-gray-800 text-white">

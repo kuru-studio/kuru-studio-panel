@@ -14,7 +14,7 @@ const Logo: React.FunctionComponent<ILogoProps> = ({ width, height }) => {
       src={LogoImage}
       width={width}
       height={height}
-      alt="Kuru Studio Social"
+      alt="Kuru Studio Panel"
     />
   );
 };

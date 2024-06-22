@@ -7,7 +7,7 @@ let component: Document | Node | Element | Window;
 describe("Logo", () => {
   it("should be able to be rendered ", () => {
     render(<Logo width={100} height={100}></Logo>);
-    component = screen.getByAltText("Kuru Studio Social");
+    component = screen.getByAltText("Kuru Studio Panel");
     expect(component).toBeInTheDocument();
   });
 });
