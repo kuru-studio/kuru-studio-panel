@@ -10,7 +10,7 @@ const NavigationLink = ({ target = null, onClick = null, title, children, textSi
         <div className="w-[60px] h-[60px] flex items-center justify-center group-hover:text-white transition-all">
           {children}
         </div>
-        <div className={classNames(textSize, "flex-1 text-xl text-gray-600 group-hover:text-white transition-all")}>
+        <div className={classNames(textSize, "flex-1 text-gray-600 group-hover:text-white transition-all")}>
           {title}
         </div>
       </div>
