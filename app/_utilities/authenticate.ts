@@ -6,7 +6,7 @@ const authenticate = () => {
   const [loading, setLoading] = useState<boolean | null>(true);
 
   useEffect(() => {
-    const storedToken = localStorage.getItem("authToken");
+    const storedToken = localStorage?.getItem("authToken");
     if (storedToken) {
       setToken(storedToken);
     }
@@ -15,13 +15,13 @@ const authenticate = () => {
 
   const login = (token: string) => {
     setToken(token);
-    localStorage.setItem("authToken", token);
+    localStorage?.setItem("authToken", token);
     window.location.reload();
   };
 
   const logout = () => {
     setToken(null);
-    localStorage.removeItem("authToken");
+    localStorage?.removeItem("authToken");
     window.location.reload();
   };
 

@@ -9,13 +9,18 @@ import { Tooltip } from "antd";
 import { ShopOutlined } from "@ant-design/icons";
 
 const EXPANDED_SETTING = "EXPANDED_SETTING";
-const storedExpandedSetting = localStorage.getItem(EXPANDED_SETTING) === "true" ? true : false;
 
 const Header: React.FunctionComponent = () => {
+  let storedExpandedSetting;
+
+  if (localStorage) {
+    storedExpandedSetting = localStorage?.getItem(EXPANDED_SETTING) === "true" ? true : false;
+  }
+
   const [isExpanded, setIsExpanded] = useState(storedExpandedSetting);
 
   const handleIsExpand = () => {
-    localStorage.setItem(EXPANDED_SETTING, `${!isExpanded}`);
+    localStorage?.setItem(EXPANDED_SETTING, `${!isExpanded}`);
     setIsExpanded(!isExpanded);
   }
 
