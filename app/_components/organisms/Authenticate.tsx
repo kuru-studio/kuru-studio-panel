@@ -42,7 +42,7 @@ const Authenticate: React.FunctionComponent = () => {
         <Atom.Logo width={100} height={100} />
         <div className="w-full max-w-80 bg-white rounded shadow p-5 flex flex-col gap-3">
           <div className="text-center text-2xl text-gray-600 mb-4">{isSignIn ? "Sign In" : "Register"}</div>
-          <Atom.Input
+          <Input
             type="text"
             placeholder="Identifier"
             value={identifier}
