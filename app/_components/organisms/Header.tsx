@@ -64,7 +64,7 @@ const Header: React.FunctionComponent = () => {
         />
       </div>
       <div className="w-[60px]">
-        <Molecule.User />
+        <Organism.User />
       </div>
       <MenuToggle />
     </header>
