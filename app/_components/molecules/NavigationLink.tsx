@@ -6,7 +6,7 @@ import classNames from "classnames";
 const NavigationLink = ({ target = null, onClick = null, title, children, textSize = "text-base", tooltip = false }) => {
   const LinkContent = () => {
     return (
-      <div className="w-72 flex items-center gap-3">
+      <div className="w-60 flex items-center">
         <div className="w-[60px] h-[60px] flex items-center justify-center">
           {children}
         </div>
