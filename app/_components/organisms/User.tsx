@@ -1,6 +1,7 @@
 import authenticate from "@/app/_utilities/authenticate";
 
-import Atom from "@atom";
+import { LogoutOutlined } from "@ant-design/icons";
+import Molecule from "@molecule";
 
 const User: React.FunctionComponent = ({ isExpanded }) => {
   const { logout } = authenticate();
@@ -9,13 +10,9 @@ const User: React.FunctionComponent = ({ isExpanded }) => {
   }
 
   return (
-    <div className="flex gap-3 m-3 md:m-0">
-      <div className="grow md:grow-0">
-        <Atom.Button block type="primary" onClick={handleLogOut}>
-          Log Out
-        </Atom.Button>
-      </div>
-    </div>
+    <Molecule.NavigationLink onClick={handleLogOut} title="Log Out" tooltip={!isExpanded}>
+      <LogoutOutlined style={{ fontSize: "20px"}} />
+    </Molecule.NavigationLink>
   );
 };
 
