@@ -5,6 +5,7 @@ import { Input } from 'antd';
 import SignInTenantMutation from "../../_definitions/mutations/tenant/sign-in";
 import CreateTenantMutation from "../../_definitions/mutations/tenant/create";
 import authenticate from "@/app/_utilities/authenticate";
+import env from "@/app/_utilities/env";
 import toast, { Toaster } from 'react-hot-toast';
 
 import Atom from "@atom";
@@ -24,7 +25,7 @@ const Authenticate: React.FunctionComponent = () => {
 
       const mutation = isSignIn ? SignInTenantMutation : CreateTenantMutation;
 
-      const data = await request("http://localhost:3001/data", mutation, variables);
+      const data = await request(env?.apiPath, mutation, variables);
       const token = data?.signInTenant?.token;
       const createErrors = data?.createTenant.errors;
 
