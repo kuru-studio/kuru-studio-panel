@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Atom from "@atom";
 import Molecule from "@molecule";
+import Organism from "@organism";
 import classNames from "classnames";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { Tooltip } from "antd";
@@ -53,7 +54,7 @@ const Header: React.FunctionComponent = () => {
         </Link>
       </div>
       <div className="w-[60px] flex-1">
-        <Molecule.Navigation
+        <Organism.Navigation
           items={[
             { name: "Home", url: "/" },
             { name: "Trending", url: "/trending" },
