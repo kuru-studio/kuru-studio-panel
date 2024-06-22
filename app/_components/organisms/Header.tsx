@@ -40,12 +40,17 @@ const Header: React.FunctionComponent = () => {
         "shadow-lg border-r border-gray-300 flex flex-col relative"
       )
     }>
-      <div>
-        <div className="w-[60px] h-[60px] flex items-center justify-center">
-          <Link href="/">
-            <Atom.Logo width={40} height={40} />
-          </Link>
-        </div>
+      <div className={classNames(isExpanded ? "w-72" : "w-[60px]", "overflow-hidden")}>
+        <Link href="/">
+          <div className="w-72 flex items-center gap-3">
+            <div className="w-[60px] h-[60px] flex items-center justify-center">
+              <Atom.Logo width={40} height={40} />
+            </div>
+            <div className="flex-1 text-xl text-gray-600">
+              Dashboard
+            </div>
+          </div>
+        </Link>
       </div>
       <div className="w-[60px] flex-1">
         <Molecule.Navigation
