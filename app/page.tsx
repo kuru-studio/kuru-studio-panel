@@ -1,16 +1,6 @@
-import Organism from "@organism";
-import { HomeOutlined } from "@ant-design/icons";
+"use client";
+import { redirect } from 'next/navigation';
 
 export default async function HomePage() {
-  return (
-    <div>
-      <Organism.Header
-        title="Dashboard"
-        icon={<HomeOutlined style={{ fontSize: "20px"}} />}
-      />
-      <Organism.Content>
-        Content
-      </Organism.Content>
-    </div>
-  );
+  redirect('/authenticate');
 }

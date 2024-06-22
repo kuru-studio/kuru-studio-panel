@@ -1,6 +1,6 @@
 import Template from "@template";
 
-export default function RootLayout({
+export default function MaterialLayout({
   children,
 }: {
   children: React.ReactNode

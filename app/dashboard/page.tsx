@@ -1,7 +1,7 @@
 import Organism from "@organism";
 import { HomeOutlined } from "@ant-design/icons";
 
-export default async function HomePage() {
+export default async function DashboardPage() {
   return (
     <div>
       <Organism.Header

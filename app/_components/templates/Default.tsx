@@ -2,8 +2,16 @@
 import Head from 'next/head';
 import Organism from "@organism";
 import "../../_styles/globals.css";
+import { redirect } from 'next/navigation';
+import authenticate from "@/app/_utilities/authenticate";
 
 const Default = ({ children }) => {
+  const { token, loading } = authenticate();
+
+  if (!token && !loading) {
+    redirect('/authenticate');
+  }
+  
   return (
     <html lang="en" className="h-full">
       <Head>

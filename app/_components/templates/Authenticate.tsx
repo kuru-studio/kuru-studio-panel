@@ -1,8 +1,16 @@
 'use client';
 import Head from 'next/head';
 import "../../_styles/globals.css";
+import { redirect } from 'next/navigation';
+import authenticate from "@/app/_utilities/authenticate";
 
 const Authenticate = ({ children }) => {
+  const { token, loading } = authenticate();
+
+  if (token && !loading) {
+    redirect('/dashboard');
+  }
+
   return (
     <html lang="en" className="h-full">
       <Head>
