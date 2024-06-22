@@ -1,12 +1,15 @@
 'use client';
 import { useState, useEffect } from "react";
+import Cookies from "js-cookie";
 
 const authenticate = () => {
   const [token, setToken] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean | null>(true);
 
+  const AUTH_TOKEN = "AUTH_TOKEN";
+
   useEffect(() => {
-    const storedToken = localStorage?.getItem("authToken");
+    const storedToken = Cookies.get(AUTH_TOKEN);
     if (storedToken) {
       setToken(storedToken);
     }
@@ -15,13 +18,13 @@ const authenticate = () => {
 
   const login = (token: string) => {
     setToken(token);
-    localStorage?.setItem("authToken", token);
+    Cookies.set(AUTH_TOKEN, token);
     window.location.reload();
   };
 
   const logout = () => {
     setToken(null);
-    localStorage?.removeItem("authToken");
+    Cookies.remove(AUTH_TOKEN);
     window.location.reload();
   };
 

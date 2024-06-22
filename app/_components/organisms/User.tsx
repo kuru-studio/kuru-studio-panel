@@ -20,7 +20,6 @@ const User: React.FunctionComponent = ({ isExpanded }) => {
       <Molecule.NavigationLink onClick={handleLogOut} title="Log Out" tooltip={!isExpanded}>
         <ExportOutlined style={{ fontSize: "20px"}} />
       </Molecule.NavigationLink>
-
     </>
   );
 };
