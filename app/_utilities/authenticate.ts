@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 
 const authenticate = () => {
   const [token, setToken] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean | null>(true);
 
   const AUTH_TOKEN = "AUTH_TOKEN";
 
@@ -12,6 +13,7 @@ const authenticate = () => {
     if (storedToken) {
       setToken(storedToken);
     }
+    setLoading(false);
   }, []);
 
   const login = (token: string) => {
@@ -26,7 +28,7 @@ const authenticate = () => {
     window.location.reload();
   };
 
-  return { token, login, logout };
+  return { token, loading, login, logout };
 };
 
 export default authenticate;
