@@ -4,9 +4,9 @@ import { ShopOutlined } from "@ant-design/icons";
 export default async function ShopPage() {
   return (
     <div>
-      <Organism.PageHeader title="Shop" icon={<ShopOutlined style={{ fontSize: "20px"}} />}>
+      <Organism.Header title="Shop" icon={<ShopOutlined style={{ fontSize: "20px"}} />}>
         Menu Here
-      </Organism.PageHeader>
+      </Organism.Header>
       <Organism.Content>
         Content
       </Organism.Content>

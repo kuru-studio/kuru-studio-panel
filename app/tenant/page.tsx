@@ -4,9 +4,9 @@ import { UserOutlined } from "@ant-design/icons";
 export default async function TenantPage() {
   return (
     <div>
-      <Organism.PageHeader title="Tenant" icon={<UserOutlined style={{ fontSize: "20px"}} />}>
+      <Organism.Header title="Tenant" icon={<UserOutlined style={{ fontSize: "20px"}} />}>
         Menu Here 
-      </Organism.PageHeader>
+      </Organism.Header>
       <Organism.Content>
         Content
       </Organism.Content>

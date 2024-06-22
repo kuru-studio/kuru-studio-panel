@@ -4,9 +4,9 @@ import { HomeOutlined } from "@ant-design/icons";
 export default async function HomePage() {
   return (
     <div>
-      <Organism.PageHeader title="Dashboard" icon={<HomeOutlined style={{ fontSize: "20px"}} />}>
+      <Organism.Header title="Dashboard" icon={<HomeOutlined style={{ fontSize: "20px"}} />}>
         Menu Here
-      </Organism.PageHeader>
+      </Organism.Header>
       <Organism.Content>
         Content
       </Organism.Content>

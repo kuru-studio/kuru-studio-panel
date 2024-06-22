@@ -5,11 +5,7 @@ import Atom from "@atom";
 import "../../_styles/globals.css";
 import authenticate from "@/app/_utilities/authenticate";
 
-const Default = ({
-  children,
-}: {
-  children: React.ReactNode
-}) => {
+const Default = ({ children }) => {
   const { token } = authenticate();
   const isLoggedIn = !!(token);
 
@@ -27,7 +23,7 @@ const Default = ({
         </Atom.Visibility>
         <Atom.Visibility state={isLoggedIn}>
           <Organism.Wrapper>
-            <Organism.Header />
+            <Organism.Sidebar />
             <div className="flex flex-col h-screen flex-1 bg-gray-100">
               <div className="flex-1">{children}</div>
               <Organism.Footer />

@@ -1,76 +1,17 @@
-"use client";
-import { useState } from "react";
 import Atom from "@atom";
-import Molecule from "@molecule";
-import Organism from "@organism";
-import classNames from "classnames";
-import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
-import { Tooltip } from "antd";
-import { ShopOutlined } from "@ant-design/icons";
 
-const EXPANDED_SETTING = "EXPANDED_SETTING";
-
-const Header: React.FunctionComponent = () => {
-  let storedExpandedSetting;
-
-  if (localStorage) {
-    storedExpandedSetting = localStorage?.getItem(EXPANDED_SETTING) === "true" ? true : false;
-  }
-
-  const [isExpanded, setIsExpanded] = useState(storedExpandedSetting);
-
-  const handleIsExpand = () => {
-    localStorage?.setItem(EXPANDED_SETTING, `${!isExpanded}`);
-    setIsExpanded(!isExpanded);
-  }
-
-  const MenuToggle = () => {
-    return (
-      <div className="absolute top-0 right-0 -mr-[10px] mt-[20px]">
-        <Tooltip title={isExpanded ? "Collapse Menu" : "Expand Menu"} placement="right">
-          <button
-            className="w-[20px] h-[20px] rounded-full border border-gray-300 bg-white shadow-lg overflow-hidden flex justify-center items-center"
-            onClick={handleIsExpand}
-          >
-            <Atom.Visibility state={isExpanded}>
-              <ChevronLeftIcon className="h-8 w-8 text-gray-500" />
-            </Atom.Visibility>
-            <Atom.Visibility state={!isExpanded}>
-              <ChevronRightIcon className="h-8 w-8 text-gray-500" />
-            </Atom.Visibility>
-          </button>
-        </Tooltip>
-      </div>
-    );
-  }
-
+const Header = ({ title, children, icon }) => {
   return (
-    <header className={
-      classNames(
-        {
-          "w-60": isExpanded,
-          "w-[60px]": !isExpanded,
-        },
-        "border-r border-gray-300 relative transition-all"
-      )
-    }>
-      <div className={classNames(isExpanded ? "w-60" : "w-[60px]", "flex flex-col h-full overflow-hidden transition-all")}>
-        <div className="border-r border-gray-300">
-          <Molecule.NavigationLink target="/" title="Dashboard" divider={true}>
-            <Atom.Logo width={30} height={30} />
-          </Molecule.NavigationLink>
+    <header className="bg-white border-b border-gray-300 px-10">
+      <div className="h-[60px] flex items-center gap-3">
+        <div className="flex gap-2 items-center">
+          <div>{icon}</div>
+          <Atom.Title content={title} />
         </div>
-        <Organism.Navigation
-          isExpanded={isExpanded}
-          items={[
-            { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} /> },
-          ]}
-        />
-        <div className="flex flex-col flex-1 justify-end">
-          <Organism.User isExpanded={isExpanded} />
+        <div>
+          {children}
         </div>
       </div>
-      <MenuToggle />
     </header>
   );
 };
