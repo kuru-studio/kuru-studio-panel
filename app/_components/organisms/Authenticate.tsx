@@ -9,6 +9,7 @@ import env from "@/app/_utilities/env";
 import toast, { Toaster } from 'react-hot-toast';
 
 import Atom from "@atom";
+import Organism from "@organism";
 
 const Authenticate: React.FunctionComponent = () => {
   const [identifier, setIdentifier] = useState('');
@@ -58,7 +59,7 @@ const Authenticate: React.FunctionComponent = () => {
   return (
     <div className="bg-[#cd3c2b] flex flex-col gap-5 justify-center items-center w-screen h-screen">
       <Atom.Visibility state={loading}>
-        <div className="text-white">Loading...</div>
+        <Organism.Loading />
       </Atom.Visibility>
       <Atom.Visibility state={!loading}>
         <Atom.Logo width={100} height={100} />

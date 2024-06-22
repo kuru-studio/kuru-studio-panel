@@ -6,7 +6,7 @@ import Organism from "@organism";
 import classNames from "classnames";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { Tooltip } from "antd";
-import { HomeOutlined, ShopOutlined } from "@ant-design/icons";
+import { ShopOutlined } from "@ant-design/icons";
 
 const Header: React.FunctionComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
