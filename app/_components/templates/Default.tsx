@@ -28,7 +28,7 @@ const Default = ({
         <Atom.Visibility state={isLoggedIn}>
           <Organism.Wrapper>
             <Organism.Header />
-            <div className="flex-1">
+            <div className="flex-1 bg-gray-100">
               <div>{children}</div>
               <Organism.Footer />
             </div>
