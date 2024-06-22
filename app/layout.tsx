@@ -1,13 +1,5 @@
-import Template from "@template";
-
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }) {
   return (
-    <Template.Default>
-      {children}
-    </Template.Default>
+    <>{children}</>
   )
 }

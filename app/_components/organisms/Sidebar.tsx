@@ -47,7 +47,7 @@ const Sidebar: React.FunctionComponent = () => {
     }>
       <div className={classNames(isExpanded ? "w-60" : "w-[60px]", "flex flex-col h-full overflow-hidden transition-all")}>
         <div className="border-r border-gray-300">
-          <Molecule.NavigationLink target="/" title="Dashboard" divider={true}>
+          <Molecule.NavigationLink target="/dashboard" title="Dashboard" divider={true}>
             <Atom.Logo width={30} height={30} />
           </Molecule.NavigationLink>
         </div>
