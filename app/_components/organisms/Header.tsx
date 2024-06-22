@@ -34,29 +34,27 @@ const Header: React.FunctionComponent = () => {
     <header className={
       classNames(
         {
-          "w-72": isExpanded,
+          "w-60": isExpanded,
           "w-[60px]": !isExpanded,
         },
-        "shadow-lg border-r border-gray-300 flex flex-col relative"
+        "shadow-lg border-r border-gray-300 relative"
       )
     }>
-      <div className={classNames(isExpanded ? "w-72" : "w-[60px]", "overflow-hidden")}>
+      <div className={classNames(isExpanded ? "w-60" : "w-[60px]", "flex flex-col h-full overflow-hidden")}>
         <Molecule.NavigationLink target="/" title="Dashboard" textSize="text-xl">
           <Atom.Logo width={40} height={40} />
         </Molecule.NavigationLink>
-      </div>
-      <div className="w-[60px] flex-1">
-        <Organism.Navigation
-          isExpanded={isExpanded}
-          items={[
-            { name: "Home", url: "/" },
-            { name: "Trending", url: "/trending" },
-            { name: "Wiki", url: "/wiki" },
-          ]}
-        />
-      </div>
-      <div className="w-[60px]">
-        <Organism.User />
+        <div className="w-[60px] flex-1">
+          <Organism.Navigation
+            isExpanded={isExpanded}
+            items={[
+              { name: "Home", url: "/" },
+              { name: "Trending", url: "/trending" },
+              { name: "Wiki", url: "/wiki" },
+            ]}
+          />
+        </div>
+        <Organism.User isExpanded={isExpanded} />
       </div>
       <MenuToggle />
     </header>
