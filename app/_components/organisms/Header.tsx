@@ -12,10 +12,10 @@ const Header: React.FunctionComponent = () => {
 
   const MenuToggle = () => {
     return (
-      <div className="absolute top-0 right-0 -mr-[15px] mt-[15px]">
+      <div className="absolute bottom-0 right-0 -mr-[10px] mb-[20px]">
         <Tooltip title={isExpanded ? "Collapse Menu" : "Expand Menu"} placement="right">
           <button
-            className="w-[30px] h-[30px] rounded-full border border-gray-300 bg-white shadow-lg overflow-hidden flex justify-center items-center"
+            className="w-[20px] h-[20px] rounded-full border border-gray-300 bg-white shadow-lg overflow-hidden flex justify-center items-center"
             onClick={() => setIsExpanded(!isExpanded)}
           >
             <Atom.Visibility state={isExpanded}>
