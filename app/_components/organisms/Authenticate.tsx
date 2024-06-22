@@ -46,12 +46,22 @@ const Authenticate: React.FunctionComponent = () => {
             type="text"
             placeholder="Identifier"
             value={identifier}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubmit();
+              };
+            }}
             onChange={(e) => setIdentifier(e.target.value)}
           />
           <Input.Password
             type="password"
             placeholder="Password"
             value={password}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleSubmit();
+              };
+            }}
             onChange={(e) => setPassword(e.target.value)}
           />
           <div className="flex justify-between">
