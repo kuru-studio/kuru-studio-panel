@@ -1,7 +1,7 @@
-import User from "./User";
+import NavigationLink from "./NavigationLink";
 
 const Molecule = {
-  User,
+  NavigationLink,
 }
 
 export default Molecule;
