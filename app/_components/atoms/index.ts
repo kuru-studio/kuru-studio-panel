@@ -4,6 +4,7 @@ import Logo from "./Logo";
 import Button from "./Button";
 import GitHub from "./GitHub";
 import Input from "./Input";
+import Title from "./Title";
 
 const Atom = {
   Visibility,
@@ -12,6 +13,7 @@ const Atom = {
   Button,
   GitHub,
   Input,
+  Title,
 }
 
 export default Atom;

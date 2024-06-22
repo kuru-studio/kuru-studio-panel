@@ -4,6 +4,7 @@ import Footer from "./Footer";
 import Loading from "./Loading";
 import Navigation from "./Navigation";
 import User from "./User";
+import PageHeader from "./PageHeader";
 import Authenticate from "./Authenticate";
 
 const Organism = {
@@ -13,6 +14,7 @@ const Organism = {
   Loading,
   Navigation,
   User,
+  PageHeader,
   Authenticate,
 }
 

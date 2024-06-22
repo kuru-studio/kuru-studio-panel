@@ -46,13 +46,15 @@ const Header: React.FunctionComponent = () => {
           "w-60": isExpanded,
           "w-[60px]": !isExpanded,
         },
-        "shadow-lg border-r border-gray-300 relative transition-all"
+        "border-r border-gray-300 relative transition-all"
       )
     }>
       <div className={classNames(isExpanded ? "w-60" : "w-[60px]", "flex flex-col h-full overflow-hidden transition-all")}>
-        <Molecule.NavigationLink target="/" title="Dashboard">
-          <Atom.Logo width={30} height={30} />
-        </Molecule.NavigationLink>
+        <div className="border-r border-gray-300">
+          <Molecule.NavigationLink target="/" title="Dashboard" divider={true}>
+            <Atom.Logo width={30} height={30} />
+          </Molecule.NavigationLink>
+        </div>
         <Organism.Navigation
           isExpanded={isExpanded}
           items={[
