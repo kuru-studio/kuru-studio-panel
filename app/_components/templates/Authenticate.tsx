@@ -1,9 +1,8 @@
 'use client';
 import Head from 'next/head';
-import Organism from "@organism";
 import "../../_styles/globals.css";
 
-const Default = ({ children }) => {
+const Authenticate = ({ children }) => {
   return (
     <html lang="en" className="h-full">
       <Head>
@@ -13,16 +12,10 @@ const Default = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className="flex h-screen w-screen">
-        <Organism.Wrapper>
-          <Organism.Sidebar />
-          <div className="flex flex-col h-screen flex-1 bg-gray-100">
-            <div className="flex-1">{children}</div>
-            <Organism.Footer />
-          </div>
-        </Organism.Wrapper>
+        {children}
       </body>
     </html>
   );
 }
 
-export default Default;
+export default Authenticate;

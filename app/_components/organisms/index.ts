@@ -6,7 +6,6 @@ import Navigation from "./Navigation";
 import User from "./User";
 import Header from "./Header";
 import Content from "./Content";
-import Authenticate from "./Authenticate";
 
 const Organism = {
   Wrapper,
@@ -16,7 +15,6 @@ const Organism = {
   Navigation,
   User,
   Header,
-  Authenticate,
   Content,
 }
 

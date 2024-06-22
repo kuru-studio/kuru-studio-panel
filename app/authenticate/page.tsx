@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { request } from 'graphql-request';
 import { Input } from 'antd';
-import SignInTenantMutation from "../../_definitions/mutations/tenant/sign-in";
-import CreateTenantMutation from "../../_definitions/mutations/tenant/create";
+import SignInTenantMutation from "../_definitions/mutations/tenant/sign-in";
+import CreateTenantMutation from "../_definitions/mutations/tenant/create";
 import authenticate from "@/app/_utilities/authenticate";
 import env from "@/app/_utilities/env";
 import toast, { Toaster } from 'react-hot-toast';
@@ -11,7 +11,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import Atom from "@atom";
 import Organism from "@organism";
 
-const Authenticate: React.FunctionComponent = () => {
+export default function AuthenticatePage() {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -58,7 +58,7 @@ const Authenticate: React.FunctionComponent = () => {
 
   return (
     <div className="bg-[#cd3c2b] flex flex-col gap-5 justify-center items-center w-screen h-screen">
-      <Atom.Visibility state={loading}>
+      <Atom.Visibility state={!!loading}>
         <Organism.Loading />
       </Atom.Visibility>
       <Atom.Visibility state={!loading}>
@@ -117,5 +117,3 @@ const Authenticate: React.FunctionComponent = () => {
     </div>
   );
 };
-
-export default Authenticate;
