@@ -5,6 +5,7 @@ import { Input } from 'antd';
 import SignInTenantMutation from "../../_definitions/mutations/tenant/sign-in";
 import CreateTenantMutation from "../../_definitions/mutations/tenant/create";
 import authenticate from "@/app/_utilities/authenticate";
+import toast, { Toaster } from 'react-hot-toast';
 
 import Atom from "@atom";
 
@@ -27,6 +28,8 @@ const Authenticate: React.FunctionComponent = () => {
       if (isSignIn) {
         if (!!(data?.token)) {
           login(data?.token);
+        } else {
+          toast.error('Invalid identifier or password.');
         }
       }
       console.log(`Successful ${isSignIn ? 'Sign In' : 'Register'}:`, data);
@@ -77,6 +80,9 @@ const Authenticate: React.FunctionComponent = () => {
           </Atom.Button>
         </div>
       </Atom.Visibility>
+      <Toaster
+        position="bottom-right"
+      />
     </div>
   );
 };
