@@ -8,7 +8,8 @@ export default async function ShopPage() {
         title="Shop"
         icon={<ShopOutlined style={{ fontSize: "20px"}} />}
         menuItems={[
-          { name: "Shop", url: "/shop" },
+          { name: "Product", url: "/shop" },
+          { name: "Materials", url: "/materials" },
         ]}
       />
       <Organism.Content>
