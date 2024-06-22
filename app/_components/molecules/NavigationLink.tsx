@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Atom from "@atom";
+import { Tooltip } from "antd";
 import classNames from "classnames";
 
-const NavigationLink = ({ target = null, onClick = null, title, children, textSize = "text-base" }) => {
+const NavigationLink = ({ target = null, onClick = null, title, children, textSize = "text-base", tooltip = false }) => {
   const LinkContent = () => {
     return (
       <div className="w-72 flex items-center gap-3">
@@ -19,14 +20,18 @@ const NavigationLink = ({ target = null, onClick = null, title, children, textSi
   return (
     <>
       <Atom.Visibility state={onClick}>
-        <div onClick={onClick} className="cursor-pointer">
-          <LinkContent />
-        </div>
+        <Tooltip placement="right" title={tooltip ? title : null}>
+          <div onClick={onClick} className="cursor-pointer">
+            <LinkContent />
+          </div>
+        </Tooltip>
       </Atom.Visibility>
       <Atom.Visibility state={!onClick}>
-        <Link href={target}>
-          <LinkContent />
-        </Link>
+        <Tooltip placement="right" title={tooltip ? title : null}>
+          <Link href={target}>
+            <LinkContent />
+          </Link>
+        </Tooltip>
       </Atom.Visibility>
     </>
   );
