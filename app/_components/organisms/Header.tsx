@@ -55,6 +55,7 @@ const Header: React.FunctionComponent = () => {
       </div>
       <div className="w-[60px] flex-1">
         <Organism.Navigation
+          isExpanded={isExpanded}
           items={[
             { name: "Home", url: "/" },
             { name: "Trending", url: "/trending" },
