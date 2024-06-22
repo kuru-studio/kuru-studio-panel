@@ -5,7 +5,7 @@ export default async function HomePage() {
   return (
     <div>
       <Organism.PageHeader title="Dashboard" icon={<HomeOutlined style={{ fontSize: "20px"}} />}>
-        content
+        Menu Here
       </Organism.PageHeader>
     </div>
   );
