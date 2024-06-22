@@ -13,6 +13,7 @@ import Atom from "@atom";
 const Authenticate: React.FunctionComponent = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [isSignIn, setIsSignIn] = useState(true);
   const { login, loading } = authenticate();
 
@@ -22,6 +23,13 @@ const Authenticate: React.FunctionComponent = () => {
         identifier,
         password,
       };
+
+      if (!isSignIn) {
+        if (password !== confirmPassword) {
+          toast.error("Password does not match.");
+          return;
+        }
+      }
 
       const mutation = isSignIn ? SignInTenantMutation : CreateTenantMutation;
       const data = await request(env?.apiPath, mutation, variables);
@@ -78,6 +86,19 @@ const Authenticate: React.FunctionComponent = () => {
             }}
             onChange={(e) => setPassword(e.target.value)}
           />
+          <Atom.Visibility state={!isSignIn}>
+            <Input.Password
+              type="password"
+              placeholder="Confirm Password"
+              value={confirmPassword}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit();
+                };
+              }}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+          </Atom.Visibility>
           <div className="flex justify-between">
             <Atom.Button type="link" className="hover:underline text-[#cd3c2b] p-0 m-0" onClick={null}>Forgot Password?</Atom.Button>
             <Atom.Button onClick={handleSubmit}>{isSignIn ? "Sign In" : "Register"}</Atom.Button>
