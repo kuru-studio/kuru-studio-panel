@@ -24,25 +24,24 @@ const Authenticate: React.FunctionComponent = () => {
       };
 
       const mutation = isSignIn ? SignInTenantMutation : CreateTenantMutation;
-
       const data = await request(env?.apiPath, mutation, variables);
-      const token = data?.signInTenant?.token;
-      const createErrors = data?.createTenant.errors;
-
       if (isSignIn) {
+        const token = data?.signInTenant?.token;
+
         if (!!(token)) {
           login(token);
         } else {
           toast.error('Invalid identifier or password.');
         }
-      }
+      } else {
+        const createErrors = data?.createTenant.errors;
 
-      if (createErrors.length >= 1) {
-        createErrors.forEach((error: string) => {
-          toast.error(error);
-        });
+        if (createErrors.length >= 1) {
+          createErrors.forEach((error: string) => {
+            toast.error(error);
+          });
+        }
       }
-
     } catch (error) {
       toast.error("Something went wrong.");
     }
