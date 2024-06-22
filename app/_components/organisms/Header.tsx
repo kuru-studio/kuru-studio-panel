@@ -5,6 +5,7 @@ import Molecule from "@molecule";
 import classNames from "classnames";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { Tooltip } from "antd";
+import Link from "next/link";
 
 const Header: React.FunctionComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -41,7 +42,9 @@ const Header: React.FunctionComponent = () => {
     }>
       <div>
         <div className="w-[60px] h-[60px] flex items-center justify-center">
-          <Atom.Logo width={40} height={40} />
+          <Link href="/">
+            <Atom.Logo width={40} height={40} />
+          </Link>
         </div>
       </div>
       <div className="w-[60px] flex-1">
