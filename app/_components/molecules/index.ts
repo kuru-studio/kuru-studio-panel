@@ -1,9 +1,9 @@
-import Navigation from "./Navigation";
-import User from "./User";
+import NavigationLink from "./NavigationLink";
+import Search from "./Search";
 
 const Molecule = {
-  Navigation,
-  User,
+  NavigationLink,
+  Search,
 }
 
 export default Molecule;

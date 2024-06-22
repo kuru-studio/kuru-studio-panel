@@ -1,54 +1,28 @@
 "use client";
-import { useState, useEffect } from "react";
 import Atom from "@atom";
 import Molecule from "@molecule";
-import { MenuIcon } from "@heroicons/react/solid";
-import { breakpoints } from "@/app/_utilities/constants";
+import Link from "next/link";
 
-const Header: React.FunctionComponent = () => {
-  const [isMobileMenuVisible, setIsMobileMenuVisible] =
-    useState<boolean>(false);
-
-  useEffect(() => {
-    const mdMediaQuery = window.matchMedia(
-      `(min-width: ${breakpoints["md"]}px)`
-    );
-    setIsMobileMenuVisible(mdMediaQuery.matches);
-    mdMediaQuery.addEventListener("change", (e) => {
-      setIsMobileMenuVisible(e.matches);
-    });
-
-    return () => {
-      mdMediaQuery.removeEventListener("change", (e) => {
-        setIsMobileMenuVisible(e.matches);
-      });
-    };
-  }, []);
-
+const Header = ({ title, menuItems = [], icon }) => {
   return (
-    <header className="bg-[#cd3c2b] shadow-lg border-b border-red-800">
-      <div className="container mx-auto py-1 md:flex md:items-center">
-        <div className="flex justify-between items-center">
-          <Atom.Logo width={50} height={50} />
-          <div
-            className="md:hidden"
-            onClick={() => setIsMobileMenuVisible(!isMobileMenuVisible)}
-          >
-            <MenuIcon className="h-5 w-5 text-white" />
-          </div>
+    <header className="bg-white border-b border-gray-300 px-10">
+      <div className="h-[60px] flex items-center gap-3 justify-between">
+        <div className="flex gap-2 items-center">
+          <div>{icon}</div>
+          <Atom.Title content={title} />
         </div>
-        <Atom.Visibility state={isMobileMenuVisible}>
-          <div className="grow md:flex items-center justify-between md:border-0 border-t border-red-700">
-            <Molecule.Navigation
-              items={[
-                { name: "Home", url: "/" },
-                { name: "Trending", url: "/trending" },
-                { name: "Wiki", url: "/wiki" },
-              ]}
-            />
-            <Molecule.User />
+        <Atom.Visibility state={menuItems.length >= 1}>
+          <div className="flex gap-3">
+            {menuItems.map((item, index) => (
+              <Link href={item.url}>
+                <div className="h-[60px] border-t-4 border-b-4 border-b-white border-t-white hover:border-b-[#cd3c2b] flex items-center justify-center px-5 transition-all text-sm">
+                  <div>{item.name}</div>
+                </div>
+              </Link>
+            ))}
           </div>
         </Atom.Visibility>
+        <div><Molecule.Search /></div>
       </div>
     </header>
   );

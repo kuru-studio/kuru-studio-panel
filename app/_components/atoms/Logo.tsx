@@ -10,10 +10,11 @@ interface ILogoProps {
 const Logo: React.FunctionComponent<ILogoProps> = ({ width, height }) => {
   return (
     <Image
+      className="rounded-md"
       src={LogoImage}
       width={width}
       height={height}
-      alt="Kuru Studio Social"
+      alt="Kuru Studio Panel"
     />
   );
 };

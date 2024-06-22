@@ -5,7 +5,7 @@ import GitHubButton from "react-github-btn";
 const Github: React.FunctionComponent = () => {
   return (
     <GitHubButton
-      href="https://github.com/kuru-studio/kuru-studio-social"
+      href="https://github.com/kuru-studio/kuru-studio-panel"
       data-color-scheme="no-preference: light; light: light; dark: light;"
       data-size="large"
       data-show-count="true"
