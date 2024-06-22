@@ -27,7 +27,7 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <header className="bg-[#cd3c2b] shadow-lg border-b border-red-800">
-      <div className="container mx-auto py-1 md:flex md:items-center">
+      <div className="px-5 py-1 md:flex md:items-center">
         <div className="flex justify-between items-center">
           <Atom.Logo width={50} height={50} />
           <div
