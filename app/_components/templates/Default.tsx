@@ -21,15 +21,17 @@ const Default = ({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className="flex flex-col h-full">
+      <body className="flex h-screen w-screen">
         <Atom.Visibility state={!isLoggedIn}>
           <Organism.Authenticate />
         </Atom.Visibility>
         <Atom.Visibility state={isLoggedIn}>
           <Organism.Wrapper>
             <Organism.Header />
-            <div className="container mx-auto flex-1">{children}</div>
-            <Organism.Footer />
+            <div className="flex-1">
+              <div>{children}</div>
+              <Organism.Footer />
+            </div>
           </Organism.Wrapper>
         </Atom.Visibility>
       </body>
