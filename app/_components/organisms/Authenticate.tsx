@@ -12,7 +12,7 @@ const Authenticate: React.FunctionComponent = () => {
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [isSignIn, setIsSignIn] = useState(true);
-  const { login } = authenticate();
+  const { login, loading } = authenticate();
 
   const handleSubmit = async () => {
     try {
@@ -35,31 +35,36 @@ const Authenticate: React.FunctionComponent = () => {
 
   return (
     <div className="bg-[#cd3c2b] flex flex-col gap-5 justify-center items-center w-screen h-screen">
-      <Atom.Logo width={100} height={100} />
-      <div className="w-full max-w-80 bg-white rounded shadow p-5 flex flex-col gap-3">
-        <div className="text-center text-2xl text-gray-600 mb-4">{isSignIn ? "Sign In" : "Register"}</div>
-        <Atom.Input
-          type="text"
-          placeholder="Identifier"
-          value={identifier}
-          onChange={(e) => setIdentifier(e.target.value)}
-        />
-        <Input.Password
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <div className="flex justify-between">
-          <Atom.Button type="link" className="hover:underline text-[#cd3c2b] p-0 m-0" onClick={null}>Forgot Password?</Atom.Button>
-          <Atom.Button onClick={handleSubmit}>{isSignIn ? "Sign In" : "Register"}</Atom.Button>
+      <Atom.Visibility state={loading}>
+        <div className="text-white">Loading...</div>
+      </Atom.Visibility>
+      <Atom.Visibility state={!loading}>
+        <Atom.Logo width={100} height={100} />
+        <div className="w-full max-w-80 bg-white rounded shadow p-5 flex flex-col gap-3">
+          <div className="text-center text-2xl text-gray-600 mb-4">{isSignIn ? "Sign In" : "Register"}</div>
+          <Atom.Input
+            type="text"
+            placeholder="Identifier"
+            value={identifier}
+            onChange={(e) => setIdentifier(e.target.value)}
+          />
+          <Input.Password
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className="flex justify-between">
+            <Atom.Button type="link" className="hover:underline text-[#cd3c2b] p-0 m-0" onClick={null}>Forgot Password?</Atom.Button>
+            <Atom.Button onClick={handleSubmit}>{isSignIn ? "Sign In" : "Register"}</Atom.Button>
+          </div>
         </div>
-      </div>
-      <div className="mb-40">
-        <Atom.Button type="link" className="text-white !hover:text-white hover:underline" onClick={() => setIsSignIn(!isSignIn)}>
-          {!isSignIn ? "Sign In" : "Register"}
-        </Atom.Button>
-      </div>
+        <div className="mb-40">
+          <Atom.Button type="link" className="text-white !hover:text-white hover:underline" onClick={() => setIsSignIn(!isSignIn)}>
+            {!isSignIn ? "Sign In" : "Register"}
+          </Atom.Button>
+        </div>
+      </Atom.Visibility>
     </div>
   );
 };
