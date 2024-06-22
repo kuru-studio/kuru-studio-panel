@@ -1,6 +1,6 @@
 import authenticate from "@/app/_utilities/authenticate";
 
-import { LogoutOutlined } from "@ant-design/icons";
+import { ExportOutlined, UserOutlined } from "@ant-design/icons";
 import Molecule from "@molecule";
 
 const User: React.FunctionComponent = ({ isExpanded }) => {
@@ -10,9 +10,15 @@ const User: React.FunctionComponent = ({ isExpanded }) => {
   }
 
   return (
-    <Molecule.NavigationLink onClick={handleLogOut} title="Log Out" tooltip={!isExpanded}>
-      <LogoutOutlined style={{ fontSize: "20px"}} />
-    </Molecule.NavigationLink>
+    <>
+      <Molecule.NavigationLink onClick={handleLogOut} title="Log Out" tooltip={!isExpanded}>
+        <ExportOutlined style={{ fontSize: "20px"}} />
+      </Molecule.NavigationLink>
+      <Molecule.NavigationLink target="/tenant" title="Tenant" tooltip={!isExpanded}>
+        <UserOutlined style={{ fontSize: "20px"}} />
+      </Molecule.NavigationLink>
+
+    </>
   );
 };
 

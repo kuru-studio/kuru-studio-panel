@@ -1,21 +1,14 @@
-import Atom from "@atom";
-
-import * as React from "react";
-import Link from "next/link";
+import Molecule from "@molecule";
 
 const Navigation = ({ items, isExpanded }) => {
   return (
-    <nav className="md:flex md:flex-row">
+    <>
       {items.map((item, index) => (
-        <div>
-          <Atom.Button type="link" key={index}>
-            <Link href={item.url}>
-              <p className="text-neutral-100">{item.name}</p>
-            </Link>
-          </Atom.Button>
-        </div>
+        <Molecule.NavigationLink target={item.url} title={item.name} tooltip={!isExpanded} key={index}>
+          {item.icon}
+        </Molecule.NavigationLink>
       ))}
-    </nav>
+    </>
   );
 };
 
