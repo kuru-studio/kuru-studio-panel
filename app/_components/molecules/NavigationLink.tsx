@@ -6,11 +6,11 @@ import classNames from "classnames";
 const NavigationLink = ({ target = null, onClick = null, title, children, textSize = "text-base", tooltip = false }) => {
   const LinkContent = () => {
     return (
-      <div className="w-60 flex items-center">
-        <div className="w-[60px] h-[60px] flex items-center justify-center">
+      <div className="w-60 flex items-center group hover:bg-[#cd3c2b] transition-all">
+        <div className="w-[60px] h-[60px] flex items-center justify-center group-hover:text-white transition-all">
           {children}
         </div>
-        <div className={classNames(textSize, "flex-1 text-xl text-gray-600")}>
+        <div className={classNames(textSize, "flex-1 text-xl text-gray-600 group-hover:text-white transition-all")}>
           {title}
         </div>
       </div>
