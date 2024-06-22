@@ -7,6 +7,9 @@ export default async function ModulesPage() {
       <Organism.PageHeader title="Modules" icon={<FlagOutlined style={{ fontSize: "20px"}} />}>
         Menu Here
       </Organism.PageHeader>
+      <Organism.Content>
+        Content
+      </Organism.Content>
     </div>
   );
 }

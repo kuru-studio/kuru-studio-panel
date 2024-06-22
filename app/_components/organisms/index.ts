@@ -5,6 +5,7 @@ import Loading from "./Loading";
 import Navigation from "./Navigation";
 import User from "./User";
 import PageHeader from "./PageHeader";
+import Content from "./Content";
 import Authenticate from "./Authenticate";
 
 const Organism = {
@@ -16,6 +17,7 @@ const Organism = {
   User,
   PageHeader,
   Authenticate,
+  Content,
 }
 
 export default Organism;

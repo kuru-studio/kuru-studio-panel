@@ -7,6 +7,9 @@ export default async function ShopPage() {
       <Organism.PageHeader title="Shop" icon={<ShopOutlined style={{ fontSize: "20px"}} />}>
         Menu Here
       </Organism.PageHeader>
+      <Organism.Content>
+        Content
+      </Organism.Content>
     </div>
   );
 }
