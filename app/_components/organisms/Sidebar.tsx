@@ -6,10 +6,20 @@ import Organism from "@organism";
 import classNames from "classnames";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { Tooltip } from "antd";
-import { ShopOutlined } from "@ant-design/icons";
+import { ShopOutlined, ExportOutlined, UserOutlined, FlagOutlined } from "@ant-design/icons";
+import authenticate from "@/app/_utilities/authenticate";
 
 const Sidebar: React.FunctionComponent = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { logout } = authenticate();
+
+  const menuItems = [
+    { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} /> },
+  ];
+
+  const handleLogOut = () => {
+    logout();
+  }
 
   const handleIsExpand = () => {
     setIsExpanded(!isExpanded);
@@ -51,14 +61,21 @@ const Sidebar: React.FunctionComponent = () => {
             <Atom.Logo width={30} height={30} />
           </Molecule.NavigationLink>
         </div>
-        <Organism.Navigation
-          isExpanded={isExpanded}
-          items={[
-            { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} /> },
-          ]}
-        />
+        {menuItems.map((item, index) => (
+          <Molecule.NavigationLink target={item.url} title={item.name} tooltip={!isExpanded} key={index}>
+            {item.icon}
+          </Molecule.NavigationLink>
+        ))}
         <div className="flex flex-col flex-1 justify-end">
-          <Organism.User isExpanded={isExpanded} />
+          <Molecule.NavigationLink target="/tenant" title="Tenant" tooltip={!isExpanded}>
+            <UserOutlined style={{ fontSize: "20px"}} />
+          </Molecule.NavigationLink>
+          <Molecule.NavigationLink target="/modules" title="Modules" tooltip={!isExpanded}>
+            <FlagOutlined style={{ fontSize: "20px"}} />
+          </Molecule.NavigationLink>
+          <Molecule.NavigationLink onClick={handleLogOut} title="Log Out" tooltip={!isExpanded}>
+            <ExportOutlined style={{ fontSize: "20px"}} />
+          </Molecule.NavigationLink>
         </div>
       </div>
       <MenuToggle />
