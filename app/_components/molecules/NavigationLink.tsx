@@ -1,12 +1,15 @@
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 import Atom from "@atom";
 import { Tooltip } from "antd";
 import classNames from "classnames";
 
 const NavigationLink = ({ target = null, onClick = null, title, children, textSize = "text-base", tooltip = false, divider = false }) => {
+  const pathname = usePathname()
+
   const LinkContent = () => {
     return (
-      <div className={classNames({ "border-b border-gray-300": divider }, "w-60 flex items-center group hover:bg-[#cd3c2b] transition-all")}>
+      <div className={classNames({ "border-b border-gray-300": divider, "bg-gray-100": pathname === target }, "w-60 flex items-center group hover:bg-[#cd3c2b] transition-all")}>
         <div className="w-[60px] h-[60px] flex items-center justify-center group-hover:text-white transition-all">
           {children}
         </div>

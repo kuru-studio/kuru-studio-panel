@@ -52,15 +52,13 @@ const Sidebar: React.FunctionComponent = () => {
           "w-60": isExpanded,
           "w-[60px]": !isExpanded,
         },
-        "border-r border-gray-300 relative transition-all"
+        "relative transition-all"
       )
     }>
-      <div className={classNames(isExpanded ? "w-60" : "w-[60px]", "flex flex-col h-full overflow-hidden transition-all")}>
-        <div className="border-r border-gray-300">
-          <Molecule.NavigationLink target="/dashboard" title="Dashboard" divider={true}>
-            <Atom.Logo width={30} height={30} />
-          </Molecule.NavigationLink>
-        </div>
+      <div className={classNames(isExpanded ? "w-60" : "w-[60px]", "flex flex-col h-full overflow-hidden transition-all border-r border-gray-300")}>
+        <Molecule.NavigationLink target="/dashboard" title="Dashboard" divider={true}>
+          <Atom.Logo width={30} height={30} />
+        </Molecule.NavigationLink>
         {menuItems.map((item, index) => (
           <Molecule.NavigationLink target={item.url} title={item.name} tooltip={!isExpanded} key={index}>
             {item.icon}
