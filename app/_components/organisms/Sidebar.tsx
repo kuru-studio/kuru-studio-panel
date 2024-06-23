@@ -2,7 +2,6 @@
 import { useState } from "react";
 import Atom from "@atom";
 import Molecule from "@molecule";
-import Organism from "@organism";
 import classNames from "classnames";
 import { ChevronRightIcon, ChevronLeftIcon } from "@heroicons/react/solid";
 import { Tooltip } from "antd";
@@ -14,7 +13,7 @@ const Sidebar: React.FunctionComponent = () => {
   const { logout } = authenticate();
 
   const menuItems = [
-    { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} /> },
+    { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} />, alternative: ["/material"] },
   ];
 
   const handleLogOut = () => {
@@ -60,7 +59,7 @@ const Sidebar: React.FunctionComponent = () => {
           <Atom.Logo width={30} height={30} />
         </Molecule.NavigationLink>
         {menuItems.map((item, index) => (
-          <Molecule.NavigationLink target={item.url} title={item.name} tooltip={!isExpanded} key={index}>
+          <Molecule.NavigationLink target={item.url} title={item.name} alternative={item.alternative} tooltip={!isExpanded} key={index}>
             {item.icon}
           </Molecule.NavigationLink>
         ))}
