@@ -35,7 +35,7 @@ export const useBreakpoint = (breakpoint: keyof typeof breakpoints): boolean => 
     const mediaQuery = window.matchMedia(query);
     setMatches(mediaQuery.matches);
 
-    const handler = (event) => setMatches(event.matches);
+    const handler = (event: MediaQueryListEvent) => setMatches(event.matches);
     mediaQuery.addEventListener("change", handler);
 
     return () => {
