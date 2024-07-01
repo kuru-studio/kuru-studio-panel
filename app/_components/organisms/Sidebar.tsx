@@ -13,7 +13,7 @@ const Sidebar: React.FunctionComponent = () => {
   const { logout } = authenticate();
 
   const menuItems = [
-    { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} />, alternative: ["/material"] },
+    { name: "Shop", url: "/shop", icon: <ShopOutlined style={{ fontSize: "20px"}} />, alternative: ["/material", "/order"] },
   ];
 
   const handleLogOut = () => {

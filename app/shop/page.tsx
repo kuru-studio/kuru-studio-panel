@@ -10,6 +10,7 @@ export default async function ShopPage() {
         menuItems={[
           { name: "Product", url: "/shop" },
           { name: "Material", url: "/material" },
+          { name: "Order", url: "/order" },
         ]}
       />
       <Organism.Content>
