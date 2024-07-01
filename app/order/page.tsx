@@ -1,7 +1,7 @@
 import Organism from "@organism";
 import { ShopOutlined } from "@ant-design/icons";
 
-export default async function ShopPage() {
+export default async function OrderPage() {
   return (
     <div>
       <Organism.Header
