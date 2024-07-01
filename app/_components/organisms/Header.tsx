@@ -5,8 +5,19 @@ import classNames from "classnames";
 import Link from "next/link";
 import { usePathname } from 'next/navigation'
 
-const Header = ({ title, menuItems = [], icon }) => {
-  const pathname = usePathname()
+interface MenuItem {
+  url: string;
+  name: string;
+}
+
+interface HeaderProps {
+  title: string;
+  menuItems?: MenuItem[];
+  icon?: React.ReactNode;
+}
+
+const Header: React.FC<HeaderProps> = ({ title, menuItems = [], icon }) => {
+  const pathname = usePathname();
 
   return (
     <header className="bg-white border-b border-gray-300 px-10">
