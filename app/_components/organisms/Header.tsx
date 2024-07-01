@@ -18,10 +18,10 @@ const Header = ({ title, menuItems = [], icon }) => {
         <Atom.Visibility state={menuItems.length >= 1}>
           <div className="flex gap-3">
             {menuItems.map((item, index) => (
-              <Link href={item.url}>
+              <Link href={item.url} key={index}>
                 <div className={classNames(
-                  { "border-b-[#cd3c2b]": pathname === item.url },
-                  "h-[60px] border-t-4 border-b-4 border-b-white border-t-white hover:border-b-[#cd3c2b] flex items-center justify-center px-5 transition-all text-sm"
+                  pathname === item.url ? "border-b-[#cd3c2b]" : "border-b-white",
+                  "h-[60px] border-t-4 border-b-4 border-t-white hover:border-b-[#cd3c2b] flex items-center justify-center px-5 transition-all text-sm"
                 )}>
                   <div>{item.name}</div>
                 </div>
