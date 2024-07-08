@@ -1,0 +1,50 @@
+{
+  "restoreTerminals.terminals": [
+    {
+      "splitTerminals": [
+        {
+          "name": "Open Browser",
+          "commands": ["wslview http://localhost:3000/ && exit"]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Node Server",
+          "commands": ["cd $(eval echo $KURU_STUDIO_PANEL_DIRECTORY) && yarn develop"]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Rails Server",
+          "commands": [
+            "sudo service docker start",
+            "sudo docker network prune -f",
+            "sudo docker stop $(docker ps -aq)",
+            "sudo docker rm $(docker ps -aq)",
+            "cd $(eval echo $KURU_STUDIO_SERVER_DIRECTORY) && docker-compose up"
+          ]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Rails Console",
+          "commands": ["cd $(eval echo $KURU_STUDIO_SERVER_DIRECTORY) && docker-compose run web rails console"]
+        }
+      ]
+    },
+    {
+      "splitTerminals": [
+        {
+          "name": "Terminal",
+          "commands": ["cd $(eval echo $KURU_STUDIO_PANEL_DIRECTORY) && clear"]
+        }
+      ]
+    }
+  ]
+}
